@@ -13,3 +13,31 @@ describe "Pepita, Pepon y Roque"{
     }
 
 }
+
+
+
+
+describe "pepita" {
+  test "cuando vuela 10 con energia 100, su energia queda en 80" {
+    pepita.volar(10)
+    assert.equals(80, pepita.energia())
+  }
+  test "cuando come alpiste, su energia de 100 pasa a 120" {
+    pepita.comer(alpiste)
+    assert.equals(120, pepita.energia())
+  }
+  test "el apiste aporta 20 de energia" {
+    assert.equals(20, alpiste.energiaQueAporta())
+  }
+
+  test "con energia 100 no puede volar" {
+    assert.notThat(pepon.puedeVolar(100))  
+  }
+
+  test "on energia 100 falla al querer voler 91" {
+    assert.throwsException({pepita.volar(91)})  //tiene que ir entre llaves, verifica que la falla sea correcta
+    assert.equals(100, pepita.energia())
+  }
+  
+}
+
